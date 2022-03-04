@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <p>Nom : {{ user.surname }}</p> {# This property is private, Twig use the getter to access it #}
+        <p>Prénom : {{ user.name }}</p> {# This property is public, Twig can access its value directly #}
+        <p>Nom complet : {{ user.fullName }}</p> {# There is no fullName property, but a getFullName method exists, it is executed #}
+        <p>Identité secrète : {{ user.revealSecretIdentity }}</p> {# The method getRevealSecretIdentity is undefined but revealSecretIdentity exists, it is executed #}
+        <p>on peut faire la même chose avec un tableau</p>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+{# templates/homepage.html.twig #}
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>title</title>
+	</head>
+	<body>
+		<h1>title</h1>
+		<p>Complétez le fichier homepage.html.twig et son contrôleur, en utilisant :
+						
+						    une variable title dans la balise title> (en-tête) et h1> (corps) : « MDN web docs »
+						
+						    une variable content dans un paragraphe HTML : « Des ressources pour les développeurs, par les développeurs. »</p>
+
+		<p>
+			content</p>
+
+
+		<p>{{ welcome | upper}}</p>
+		<p>Vous êtes le
+			{{ visitorNumber }}ème visiteur !</p>
+		<p>Sommes-nous sur la page d'accueil ?
+			{{ isHomepage }}
+		</p>
+		<p>Savons-nous déjà tout ce qu'il y a à savoir sur Twig ?
+			{{ knowEverythingAboutTwig }}</p>
+		<p>La page a chargé en
+			{{ pageLoadTime }}
+			seconde(s)</p>
+		<p>Les filtres les plus utilisés :
+						
+						    lower : met toutes les lettres d'une chaîne de caractères en minuscules.
+						
+						    capitalize : met la première lettre d'une chaîne de caractères en majuscule.
+						
+						    date : formate une date selon le format donné passé en paramètre,
+			    myDate|date("d-m-Y") }}
+			par exemple.
+						
+						    keys : appliqué à un array, retourne les clés de ce tableau (utile si nous souhaitons parcourir les clés plutôt que les valeurs).
+						
+						    length : retourne le nombre d'éléments s'il s'agit d'un array, ou la longueur pour une chaîne de caractères.
+						
+						    raw : permet d’exécuter le HTML ou le JavaScript contenu dans la variable (à n'utiliser que sur des valeurs considérées comme sûres).</p>
+
+                            <p>{{ "now"|date("Y")}} affiche l'année grâce au filtre</p>
+
+							
+
+	</body>
+</html>
