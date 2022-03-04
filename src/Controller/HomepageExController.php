@@ -12,6 +12,11 @@ class HomepageExController extends AbstractController
      */
     public function homepage()
     {
+        $users = [
+            ['username' => 'Bruce Wayne'],
+            ['username' => 'Clark Kent'],
+        ];
+
         $lastPost = new class() {
             private string $title;
             private \DateTime $createdAt;
@@ -37,6 +42,7 @@ class HomepageExController extends AbstractController
             'title' => 'Page d\'accueil',
             'content' => 'Ceci est le contenu de ma page d\'accueil',
             'lastPost' => $lastPost,
+            'users' => $users,
         ]);
     }
 }

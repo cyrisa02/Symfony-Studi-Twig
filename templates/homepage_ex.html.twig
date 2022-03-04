@@ -1,17 +1,113 @@
 {# templates/homepage_ex.html.twig #}
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>{{ title }}</title>
-    </head>
-    <body>
+	<head>
+		<meta charset="UTF-8">
+		<title>{{ title }}</title>
+	</head>
+	<body>
 
-    <p>À partir du contrôleur ci-dessous, écrivez le contenu du fichier homepage.html.twig en mettant le contenu de la balise h1> en majuscules. Affichez ensuite le contenu du dernier article en affichant la date au bon format.</p>
-        <h1>{{ title|upper }}</h1>
-        <p>{{ content }}</p>
-        <h2>Le dernier article</h2>
-        
-        <p>{{ lastPost.title }} écrit le {{ lastPost.createdAt|date('d/m/Y') }}</p>
-    </body>
-</html>
+		<p>À partir du contrôleur ci-dessous, écrivez le contenu du fichier homepage.html.twig en mettant le contenu de la balise h1> en majuscules. Affichez ensuite le contenu du dernier article en affichant la date au bon format.</p>
+		<h1>{{ title|upper }}</h1>
+		<p>{{ content }}</p>
+		<h2>Le dernier article</h2>
+
+		<p>{{ lastPost.title }}
+			écrit le
+			{{ lastPost.createdAt|date('d/m/Y') }}</p>
+
+		<h1>Balise d'exécution</h1>
+
+		<p>Affecter une variable
+			{% set username = 'Nicolas' %}
+			{{ 'Bonjour ' ~ username }}
+		</p>
+
+		<h1>Conditionner l'affichage d'une variable</h1>
+		<p>
+			{% if user is defined %}
+				<p>Utilisateur connecté :
+					{{ user.username }}</p>
+			{% else %}
+				<p>Pas d'utilisateur connecté !</p>
+			{% endif %}
+		</p>
+
+		<p>
+			{% if user is defined and user.username is not null %}
+				<p>Utilisateur connecté :
+					{{ user.username }}</p>
+			{% else %}
+				<p>Pas d'utilisateur connecté !</p>
+			{% endif %}
+		</p>
+
+		
+
+		<p>{#{% if user.username == '' %}
+			    <p>Nom d'utilisateur vide.</p>
+			{% endif %}
+			
+			
+			{% if 1 in [1, 2, 3] %}
+			
+			
+			Pour utiliser des expressions régulières, nous pouvons utiliser matches :
+			
+			{% if phone matches '/^[\\d\\.]+$/' %}
+			    <p>Numéro de téléphone valide !</p>
+			{% endif %}
+			
+			Enfin, il est aussi possible de vérifier si une chaîne de caractères commence ou se termine par une lettre particulière :
+			{% if 'Twig' starts with 'T' and 'Twig' ends with 'g' %}
+			
+			#}</p>
+
+		<h1>Boucler sur un tableau</h1>
+
+<p>Avec loop index0 part de 0 sinon c'est 1 le départ</p>
+        <ul>
+			{% for user in users %}
+				<li>{{ loop.index }} - {{ user.username}}</li>
+                {% if loop.last %}
+                <li>Fin</li>
+                {% endif %}
+			{% endfor %}
+
+		</ul>
+
+		
+		{% for user in users %}
+		    <p>{{ user.username }}</p>
+		{% endfor %}
+		
+		
+		
+		{% for user in users %}
+		    <p>{{ user.username }}</p>
+		{% else %}
+		    <p>Aucun utilisateur trouvé !</p>
+		{% endfor %}
+		
+		
+
+		<h1>Les fonctions</h1>
+		<p>
+		{{ dump(date("now")) }}
+		
+		
+		{{ dump(range(0, 3)) }} {# génère 0, 1, 2, 3 #}
+
+	{# Le troisième argument, step, permet de spécifier de combien on incrémente entre chaque valeur #}
+		{{ dump(range(0, 10, 2)) }}
+		{# Génère 0, 2, 4, 6, 8, 10 #}
+
+		{# On peut utiliser les paramètres nommés, pour rendre notre code plus explicite #}
+		{{ dump(range(low=0, high=10, step=2)) }}
+		{# Le résultat est identique #}
+
+		{# L'opérateur .. est un sucre syntaxique qui permet de générer une liste d'entiers avec un step de 1 #}
+		{{ dump(0..2) }}
+		{# Génère 0, 1, 2 #}
+	</body>
+</html></p>#}</body></html>
